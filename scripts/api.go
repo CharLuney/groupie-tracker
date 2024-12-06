@@ -10,7 +10,7 @@ import (
 func GetAPI() {
 	// Retrieve API data
 	fmt.Println("Getting API")
-	groupie, err := http.Get("https://groupietrackers.herokuapp.com/api")
+	groupie, err := http.Get(web.YnovAPI)
 
 	if err != nil {
 		fmt.Println("Could not get API")
@@ -30,4 +30,6 @@ func GetAPI() {
 
 	// Convert API data
 	json.Unmarshal(groupieData, &data)
+
+	fmt.Println(data[0].Artist.Name)
 }

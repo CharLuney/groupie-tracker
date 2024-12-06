@@ -5,13 +5,14 @@ var data []Data
 
 type Website struct {
 	Template string
+	YnovAPI  string
 }
 
 type Data struct {
-	// artists      []Artist
-	// locations    []Location
-	// concertdates []ConcertDate
-	// relation     []Relation
+	Artist      Artist
+	Location    Location
+	ConcertDate ConcertDate
+	Relation    Relation
 }
 
 type Artist struct {
@@ -34,4 +35,3 @@ type ConcertDate struct {
 type Relation struct {
 	Relations []string
 }
-
