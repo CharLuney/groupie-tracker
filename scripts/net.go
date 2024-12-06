@@ -7,6 +7,7 @@ import (
 )
 
 func CreateWebsite() {
+	fmt.Println("Creating website")
 	http.HandleFunc("/", Index)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("/static"))))
 	http.ListenAndServe(":8080", nil)
@@ -17,6 +18,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func ParseTemplate(w http.ResponseWriter) {
+	fmt.Println("Parsing template")
 	tmpl, err := template.ParseFiles(web.Template)
 
 	if err != nil {

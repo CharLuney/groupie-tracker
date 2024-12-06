@@ -1,16 +1,7 @@
 package main
 
-import (
-	"github.com/gin-gonic/gin"
-	//"errors"
-)
-
-func Search(c *gin.Context) {
-	//c.IndentedJSON(http.StatusOK, artists)
-}
+import api "main/scripts"
 
 func main() {
-	router := gin.Default()
-	router.GET("/artists", Search)
-	router.Run("localhost:8080")
+	api.Init()
 }
