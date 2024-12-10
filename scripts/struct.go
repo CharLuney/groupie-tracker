@@ -25,13 +25,13 @@ type Artist struct {
 }
 
 type Location struct {
-	Locations []string
+	Locations []string `json:"locations"`
 }
 
 type Date struct {
-	ConcertDates []string
+	ConcertDates []string `json:"dates"`
 }
 
 type Relation struct {
-	Relations []string
+	Relations []string `json:"relations"`
 }

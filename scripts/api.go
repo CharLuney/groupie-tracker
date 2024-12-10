@@ -7,28 +7,17 @@ import (
 	"net/http"
 )
 
-func GetAPI() {
+func GetAll() {
+	GetArtists()
+	GetLocations()
+	GetDates()
+	GetRelations()
+	fmt.Println("DEBUG: ", artists[0].Name)
+}
+
+func GetAPI(API string) []byte {
 	// Retrieve API data
-	fmt.Println("Getting API")
-
-	artists, err := http.Get(web.Artists)
-	if err != nil {
-		fmt.Println("Could not get API")
-		fmt.Println("Error: ", err.Error())
-	}
-
-	locations, err := http.Get(web.Locations)
-	if err != nil {
-		fmt.Println("Could not get API")
-		fmt.Println("Error: ", err.Error())
-	}
-
-	dates, err := http.Get(web.Dates)
-	if err != nil {
-		fmt.Println("Could not get API")
-		fmt.Println("Error: ", err.Error())
-	}
-	relations, err := http.Get(web.Relations)
+	groupie, err := http.Get(web.Artists)
 
 	if err != nil {
 		fmt.Println("Could not get API")
@@ -36,33 +25,37 @@ func GetAPI() {
 	}
 
 	// Read API data
-	artistsData, err := io.ReadAll(artists.Body)
+	groupieData, err := io.ReadAll(groupie.Body)
+
 	if err != nil {
 		fmt.Println("Could not read API")
 		fmt.Println("Error: ", err.Error())
 	}
 
-	locationsData, err := io.ReadAll(locations.Body)
-	if err != nil {
-		fmt.Println("Could not read API")
-		fmt.Println("Error: ", err.Error())
-	}
+	return groupieData
 
-	datesData, err := io.ReadAll(dates.Body)
-	if err != nil {
-		fmt.Println("Could not read API")
-		fmt.Println("Error: ", err.Error())
-	}
+}
 
-	relationsData, err := io.ReadAll(relations.Body)
-	if err != nil {
-		fmt.Println("Could not read API")
-		fmt.Println("Error: ", err.Error())
-	}
+func GetArtists() {
+	fmt.Println("Getting API.. Artists")
+	data := GetAPI(web.Artists)
+	json.Unmarshal(data, &artists)
+}
 
-	// Convert API data
-	json.Unmarshal(artistsData, &artists)
-	json.Unmarshal(locationsData, &locations)
-	json.Unmarshal(datesData, &dates)
-	json.Unmarshal(relationsData, &relations)
+func GetLocations() {
+	fmt.Println("Getting API.. Locations")
+	data := GetAPI(web.Locations)
+	json.Unmarshal(data, &locations)
+}
+
+func GetDates() {
+	fmt.Println("Getting API.. Dates")
+	data := GetAPI(web.Dates)
+	json.Unmarshal(data, &dates)
+}
+
+func GetRelations() {
+	fmt.Println("Getting API.. Relations")
+	data := GetAPI(web.Relations)
+	json.Unmarshal(data, &relations)
 }

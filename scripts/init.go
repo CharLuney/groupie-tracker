@@ -13,6 +13,7 @@ func Init() {
 		Relations: "https://groupietrackers.herokuapp.com/api/relations",
 	}
 
+	GetAll()
 	CreateWebsite()
 
 }
