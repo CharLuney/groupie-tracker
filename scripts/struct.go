@@ -1,18 +1,18 @@
 package api
 
 var web Website
-var data []Data
+
+var artists []Artist
+var locations []Location
+var dates []Date
+var relations []Relation
 
 type Website struct {
-	Template string
-	YnovAPI  string
-}
-
-type Data struct {
-	Artist      Artist
-	Location    Location
-	ConcertDate ConcertDate
-	Relation    Relation
+	Template  string
+	Artists   string
+	Locations string
+	Dates     string
+	Relations string
 }
 
 type Artist struct {
@@ -28,7 +28,7 @@ type Location struct {
 	Locations []string
 }
 
-type ConcertDate struct {
+type Date struct {
 	ConcertDates []string
 }
 

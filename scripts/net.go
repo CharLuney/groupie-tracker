@@ -7,7 +7,7 @@ import (
 )
 
 func CreateWebsite() {
-	fmt.Println("Creating website")
+	fmt.Println("Creating website..")
 	http.HandleFunc("/", Index)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("/static"))))
 	http.ListenAndServe(":8080", nil)
@@ -18,7 +18,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func ParseTemplate(w http.ResponseWriter) {
-	fmt.Println("Parsing template")
+	fmt.Println("Parsing template..")
 	tmpl, err := template.ParseFiles(web.Template)
 
 	if err != nil {
@@ -28,7 +28,7 @@ func ParseTemplate(w http.ResponseWriter) {
 		return
 	}
 
-	err = tmpl.Execute(w, data)
+	err = tmpl.Execute(w, artists)
 	if err != nil {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
