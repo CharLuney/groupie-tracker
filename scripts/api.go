@@ -12,7 +12,6 @@ func GetAll() {
 	GetLocations()
 	GetDates()
 	GetRelations()
-	fmt.Println("DEBUG: ", artists[0].Name)
 }
 
 func GetAPI(API string) []byte {

@@ -8,7 +8,9 @@ var dates []Date
 var relations []Relation
 
 type Website struct {
-	Template  string
+	Template string
+	Port     string
+
 	Artists   string
 	Locations string
 	Dates     string

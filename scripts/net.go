@@ -7,10 +7,11 @@ import (
 )
 
 func CreateWebsite() {
-	fmt.Println("Creating website..")
+	fmt.Println("Creating website..", web.Port)
 	http.HandleFunc("/", Index)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("/static"))))
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("> Created website", web.Port)
+	http.ListenAndServe(web.Port, nil)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -18,7 +19,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func ParseTemplate(w http.ResponseWriter) {
-	fmt.Println("Parsing template..")
+	fmt.Println("Parsing template.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)
 
 	if err != nil {
