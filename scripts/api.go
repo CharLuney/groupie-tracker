@@ -31,5 +31,5 @@ func GetAPI() {
 	// Convert API data
 	json.Unmarshal(groupieData, &data)
 
-	fmt.Println(data[0].Artist.Name)
+	//fmt.Println(data[0].Artist.Name)
 }

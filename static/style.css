@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(154, 117, 223);
+}
+
+#icon {
+    width: 25%;
+    height: 25%;
+}
+
+div {
+    color: whitesmoke;
+    background-color: rgba(38, 10, 112);
+    padding: 15px;
+    width: 20%;
+    height: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    background-color: rbg(154, 117, 223);
+}
