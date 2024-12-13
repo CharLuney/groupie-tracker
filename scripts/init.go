@@ -6,7 +6,7 @@ func Init() {
 	fmt.Println("Initializing..")
 
 	web = Website{
-		Template:  "static/page.html",
+		Template:  "web/page.html",
 		Port:      ":8080",
 		Artists:   "https://groupietrackers.herokuapp.com/api/artists",
 		Locations: "https://groupietrackers.herokuapp.com/api/locations",

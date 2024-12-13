@@ -9,8 +9,7 @@ import (
 func CreateWebsite() {
 	fmt.Println("Creating website..", web.Port)
 	http.HandleFunc("/", Index)
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("/static"))))
-	fmt.Println("> Created website", web.Port)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 	http.ListenAndServe(web.Port, nil)
 }
 

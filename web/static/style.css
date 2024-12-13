@@ -7,7 +7,7 @@ body {
     height: 25%;
 }
 
-div {
+.flex-item {
     color: whitesmoke;
     background-color: rgba(38, 10, 112);
     padding: 15px;
@@ -20,4 +20,19 @@ div {
     justify-content: space-around;
     height: 100vh;
     background-color: rbg(154, 117, 223);
+}
+
+.grid-cont {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #5921f3;
+    padding: 10px;
+}
+  .grid-item {
+    background-color: rgba(48, 48, 48, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
 }
