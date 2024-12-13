@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// Create the web server and waits for incoming user request
 func CreateWebsite() {
 	fmt.Println("Creating website..", web.Port)
 	http.HandleFunc("/", Index)
@@ -13,10 +14,12 @@ func CreateWebsite() {
 	http.ListenAndServe(web.Port, nil)
 }
 
+// Server handler
 func Index(w http.ResponseWriter, r *http.Request) {
 	ParseTemplate(w)
 }
 
+// Parses HTML Template
 func ParseTemplate(w http.ResponseWriter) {
 	fmt.Println("Parsing template.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)

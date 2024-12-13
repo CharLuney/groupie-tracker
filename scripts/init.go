@@ -15,6 +15,9 @@ func Init() {
 	}
 
 	GetAll()
+
+	fmt.Println(artists[0].Name)
+
 	CreateWebsite()
 
 	fmt.Println("> Initialized")

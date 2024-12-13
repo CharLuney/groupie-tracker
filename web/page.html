@@ -20,18 +20,10 @@
     <div class="flex-item">Topbar</div>
     <div class="flex-item">Main</div>
 
-    <script src="/static/script.js"/>
-
     <div class="grid-cont">
-        <div class="grid-item">1</div>
-        <div class="grid-item">2</div>
-        <div class="grid-item">3</div>
-        <div class="grid-item">4</div>
-        <div class="grid-item">5</div>
-        <div class="grid-item">6</div>
-        <div class="grid-item">7</div>
-        <div class="grid-item">8</div>
-        <div class="grid-item">9</div>    
+        {{range .}}
+            <div class="grid-item"> {{.Name}} </div>
+        {{end}}
     </div>
 
  </body>
