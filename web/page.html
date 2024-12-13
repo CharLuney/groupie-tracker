@@ -22,7 +22,12 @@
 
     <div class="grid-cont">
         {{range .}}
-            <div class="grid-item"> {{.Name}} </div>
+            <div class="grid-item">
+                <img src={{.Image}}>
+                <p> {{.Name}} </p> 
+                <p> {{.CreationDate}} </p>
+                <p> {{.FirstAlbum}} </p>
+            </div>
         {{end}}
     </div>
 
