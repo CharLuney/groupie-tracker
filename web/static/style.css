@@ -2,37 +2,33 @@ body {
     background-color: rgb(154, 117, 223);
 }
 
-#icon {
-    width: 25%;
-    height: 25%;
+.container {
+    display: flex;
+    height: auto;
+    width: auto;
+    background-color: rbg(154, 117, 223);
 }
 
-.flex-item {
+.menu {
     color: whitesmoke;
     background-color: rgba(38, 10, 112);
     padding: 15px;
-    width: 20%;
-    height: 100%;
-}
-
-.flex-container {
-    display: flex;
-    justify-content: space-around;
-    height: 100vh;
-    background-color: rbg(154, 117, 223);
+    width: auto;
+    height: auto;
 }
 
 .grid-cont {
     display: grid;
+    width: 500px;
     grid-template-columns: auto auto auto;
-    background-color: #5921f3;
+    background-color: #5019e7;
     padding: 10px;
 }
   .grid-item {
     background-color: rgba(48, 48, 48, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid #5019e7;
     padding: 20px;
     font-size: 30px;
     text-align: center;
-    color: white;
+    color: whitesmoke;
 }

@@ -8,27 +8,24 @@
 
 <body>
 
-    <div class="flex-item">
-        <header>
-            <h1 style="color: whitesmoke">Groupie Tracker</h1>
-        </header>
-        <img id="icon" src="/static/groupie_icon.jpg" alt="GT Icon">
-        <br>
-        <p style="color: whitesmoke">Filter here:</p>
-    </div>
-
-    <div class="flex-item">Topbar</div>
-    <div class="flex-item">Main</div>
-
-    <div class="grid-cont">
-        {{range .}}
-            <div class="grid-item">
-                <img src={{.Image}}>
-                <p> {{.Name}} </p> 
-                <p> {{.CreationDate}} </p>
-                <p> {{.FirstAlbum}} </p>
-            </div>
-        {{end}}
+    <div class="container">
+        
+        <div class="menu">
+            <img id="icon" src="/static/groupie_icon.jpg" alt="GT Icon">
+            <br>
+            <p style="color: whitesmoke">Filter here:</p>
+        </div>
+    
+        <div class="grid">
+            {{range .}}
+                <div class="grid-item">
+                    <img src={{.Image}}>
+                    <p> {{.Name}} </p> 
+                    <p> Creation in {{.CreationDate}} </p>
+                    <p> Debut Album on {{.FirstAlbum}} </p>
+                </div>
+            {{end}}
+        </div>
     </div>
 
  </body>
