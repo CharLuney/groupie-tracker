@@ -31,7 +31,7 @@ func ParseTemplate(w http.ResponseWriter) {
 		return
 	}
 
-	err = tmpl.Execute(w, artists)
+	err = tmpl.Execute(w, data)
 	if err != nil {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
