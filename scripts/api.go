@@ -16,7 +16,7 @@ func GetAll() {
 
 func GetAPI(API string) []byte {
 	// Retrieve API data
-	groupie, err := http.Get(API)
+	groupie, err := http.Get(web.Artists)
 
 	if err != nil {
 		fmt.Println("Could not get API")
@@ -38,23 +38,23 @@ func GetAPI(API string) []byte {
 func GetArtists() {
 	fmt.Println("Getting API.. Artists")
 	data := GetAPI(web.Artists)
-	json.Unmarshal(data, &data)
+	json.Unmarshal(data, &artists)
 }
 
 func GetLocations() {
 	fmt.Println("Getting API.. Locations")
 	data := GetAPI(web.Locations)
-	json.Unmarshal(data, &data)
+	json.Unmarshal(data, &locations)
 }
 
 func GetDates() {
 	fmt.Println("Getting API.. Dates")
 	data := GetAPI(web.Dates)
-	json.Unmarshal(data, &data)
+	json.Unmarshal(data, &dates)
 }
 
 func GetRelations() {
 	fmt.Println("Getting API.. Relations")
 	data := GetAPI(web.Relations)
-	json.Unmarshal(data, &data)
+	json.Unmarshal(data, &relations)
 }
