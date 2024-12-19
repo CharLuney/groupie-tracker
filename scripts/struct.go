@@ -1,12 +1,12 @@
 package api
 
 var web Website
+var filters Filters
 
 var artists []Artist
 var locations []Location
 var dates []Date
 var relations []Relation
-
 
 type Website struct {
 	Template string
@@ -18,6 +18,12 @@ type Website struct {
 	Relations string
 }
 
+type Filters struct {
+	CreationDate     int
+	FirstAlbumDate   string
+	MembersNumber    int
+	ConcertLocations string
+}
 
 type Artist struct {
 	ID           string   `json:"id"`

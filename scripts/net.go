@@ -10,6 +10,7 @@ import (
 func CreateWebsite() {
 	fmt.Println("Creating website..", web.Port)
 	http.HandleFunc("/", Index)
+	http.HandleFunc("/filter", Filter)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 	http.ListenAndServe(web.Port, nil)
 }
@@ -19,9 +20,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	ParseTemplate(w)
 }
 
+// Filter handler
+func Filter(w http.ResponseWriter, r *http.Request) {
+	ParseTemplate(w)
+}
+
 // Parses HTML Template
 func ParseTemplate(w http.ResponseWriter) {
-	fmt.Println("Parsing template.. ", web.Template)
+	fmt.Println("Loading page.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)
 
 	if err != nil {

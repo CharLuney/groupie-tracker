@@ -14,6 +14,13 @@ func Init() {
 		Relations: "https://groupietrackers.herokuapp.com/api/relations",
 	}
 
+	filters = Filters{
+		CreationDate:     0,
+		FirstAlbumDate:   "",
+		MembersNumber:    0,
+		ConcertLocations: "",
+	}
+
 	GetAll()
 	CreateWebsite()
 }
