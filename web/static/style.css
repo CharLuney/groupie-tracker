@@ -6,29 +6,41 @@ body {
     display: flex;
     height: auto;
     width: auto;
-    background-color: rbg(154, 117, 223);
+    background-color: rgb(154, 117, 223);
 }
 
 .menu {
     color: whitesmoke;
     background-color: rgba(38, 10, 112);
     padding: 15px;
-    width: auto;
+    max-width: auto;
     height: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
 
 .grid-cont {
     display: grid;
     width: 500px;
-    grid-template-columns: auto auto auto;
     background-color: #5019e7;
-    padding: 10px;
+    padding: 15px;
 }
   .grid-item {
-    background-color: rgba(48, 48, 48, 0.8);
-    border: 1px solid #5019e7;
+    background-color: rgb(74, 45, 163);
+    border: 7px solid rgba(38, 10, 112);
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    font-size: 20px;
     color: whitesmoke;
+    transition: 0.5s;
+}
+
+.grid-item:hover {
+    padding: 40px;
+    background-color: rgb(94, 61, 194);
+    font-size: 25px;
 }
