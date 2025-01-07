@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 )
 
 func GetAll() {
@@ -12,6 +13,7 @@ func GetAll() {
 	GetLocations()
 	GetDates()
 	GetRelations()
+	SetIDs()
 }
 
 func GetAPI(API string) []byte {
@@ -57,4 +59,11 @@ func GetRelations() {
 	fmt.Println("Getting API.. Relations")
 	data := GetAPI(web.Relations)
 	json.Unmarshal(data, &relations)
+}
+
+func SetIDs() {
+	fmt.Println("Assigning all IDs ..")
+	for i := 0; i < len(artists); i++ {
+		artists[i].ID = strconv.Itoa(i)
+	}
 }

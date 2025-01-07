@@ -49,18 +49,21 @@
             <p style="color: whitesmoke">Search:</p>
         </div>
     
+        <form action="/" method="post"> 
         <div class="grid">
             {{range .}}
-                <div class="grid-item">
+                <div class="grid-item"> <a href="/inspect" style="text-decoration: none; color: white;">
                     <img src={{.Image}}>
                     <p> {{.Name}} </p> 
                     <p> Creation in {{.CreationDate}} </p>
                     <p> Debut Album on {{.FirstAlbum}} </p>
-                </div>
+                    <p> {{.ID}} </p>
+                </a> </div>
             {{end}}
         </div>
+        </form>
     </div>
-
+    
  </body>
 
 </html>
