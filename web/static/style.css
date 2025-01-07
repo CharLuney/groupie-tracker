@@ -30,7 +30,7 @@ body {
 }
   .grid-item {
     background-color: rgb(74, 45, 163);
-    border: 7px solid rgba(38, 10, 112);
+    border: 7px solid rgb(38, 10, 112);
     padding: 20px;
     font-size: 30px;
     text-align: center;
@@ -43,6 +43,10 @@ body {
     padding: 40px;
     background-color: rgb(94, 61, 194);
     font-size: 25px;
+}
+
+.img {
+  border: 7px solid rgb(38, 10, 112);
 }
 
 .dropdown {
