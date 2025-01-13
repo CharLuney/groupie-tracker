@@ -10,12 +10,18 @@ import (
 func CreateWebsite() {
 	fmt.Println("Creating website..", web.Port)
 	http.HandleFunc("/", Index)
+	http.HandleFunc("/inspect", Inspect)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 	http.ListenAndServe(web.Port, nil)
 }
 
 // Server handler
 func Index(w http.ResponseWriter, r *http.Request) {
+	ParseTemplate(w)
+}
+
+func Inspect(w http.ResponseWriter, r *http.Request) {
+	web.Template = "web/inspect.html"
 	ParseTemplate(w)
 }
 

@@ -7,7 +7,6 @@ var locations []Location
 var dates []Date
 var relations []Relation
 
-
 type Website struct {
 	Template string
 	Port     string
@@ -18,9 +17,8 @@ type Website struct {
 	Relations string
 }
 
-
 type Artist struct {
-	ID           string   `json:"id"`
+	ID           string
 	Image        string   `json:"image"`
 	Name         string   `json:"name"`
 	Members      []string `json:"members"`
