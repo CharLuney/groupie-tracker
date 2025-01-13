@@ -62,7 +62,7 @@ func GetRelations() {
 }
 
 func SetIDs() {
-	fmt.Println("Assigning all IDs ..")
+	fmt.Println("Assigning all IDs..")
 	for i := 0; i < len(artists); i++ {
 		artists[i].ID = strconv.Itoa(i)
 	}
