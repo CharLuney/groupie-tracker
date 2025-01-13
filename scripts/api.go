@@ -34,7 +34,6 @@ func GetAPI(API string) []byte {
 	}
 
 	return groupieData
-
 }
 
 func GetArtists() {

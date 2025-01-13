@@ -1,25 +1,46 @@
 body {
     background-color: rgb(154, 117, 223);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 100vh;
 }
 
 .container {
     display: flex;
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100vw;
     background-color: rgb(154, 117, 223);
+    gap: 7px;
+    overflow-y: hidden;
 }
 
 .menu {
     color: whitesmoke;
     background-color: rgba(38, 10, 112);
     padding: 15px;
+    border-radius: 5px;
     max-width: auto;
-    height: auto;
+    max-height: auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 7px
+}
+
+.wrap {
+  overflow-y: scroll;
+  height: 90%;
 }
 
 .grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
+    gap: 7px;
+    height: auto;
+    
 }
 
 .grid-cont {
@@ -31,10 +52,10 @@ body {
   .grid-item {
     background-color: rgb(74, 45, 163);
     border: 7px solid rgb(38, 10, 112);
+    border-radius: 5px;
     padding: 20px;
     font-size: 30px;
     text-align: center;
-    font-size: 20px;
     color: whitesmoke;
     transition: 0.5s;
 }
@@ -45,8 +66,53 @@ body {
     font-size: 25px;
 }
 
+.icon {
+  border: 7px solid rgb(38, 10, 112);
+  border-radius: 10px;
+}
+
 .img {
   border: 7px solid rgb(38, 10, 112);
+  border-radius: 10px;
+}
+
+.apply {
+  background-color: whitesmoke;
+  border: rgb(154, 117, 223);
+  border-radius: 5px;
+  height: 35px;
+  align-content: center;
+}
+
+.search {
+  background-color: rgb(154, 117, 223);
+  border: 7px solid rgb(74, 45, 163);
+  border-radius: 5px;
+  padding: 20px;
+  height: 35px;
+  align-content: center;
+  font-size: medium;
+}
+
+/* HOVER NOT FUNCTIONAL */
+.search hover {
+  background-color: rgb(94, 61, 194);
+}
+
+.navinput {
+  resize: none;
+  height: 35px;
+  width: 1000px;
+  border: 7px solid rgb(74, 45, 163);
+  border-radius: 5px;
+  background-color: rgb(154, 117, 223);
+  align-content: center;
+}
+
+.navbar {
+  background-color: rgb(38, 10, 112);
+  border-radius: 5px;
+  height: 10%;
 }
 
 .dropdown {
