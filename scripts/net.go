@@ -10,6 +10,7 @@ import (
 func CreateWebsite() {
 	fmt.Println("Creating website..", web.Port)
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
+	fmt.Println("Assigning routes..")
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/filter", Filter)
 	http.HandleFunc("/inspect", Inspect)
@@ -22,9 +23,9 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Filter(w http.ResponseWriter, r *http.Request) {
-	filter.MembersAmount = r.FormValue("Members")
-	fmt.Println(filter.MembersAmount)
-	FilterMembers()
+	filters.MembersAmount = r.FormValue("Members")
+	fmt.Println(filters.MembersAmount)
+	ApplyFilters()
 	FilterTemplate(w)
 }
 

@@ -10,8 +10,8 @@ import (
 
 func GetAll() {
 	GetArtists()
-	GetLocations()
 	GetDates()
+	GetLocations()
 	GetRelations()
 	SetIDs()
 }
@@ -46,19 +46,19 @@ func GetArtists() {
 func GetLocations() {
 	fmt.Println("Getting API.. Locations")
 	data := GetAPI(web.Locations)
-	json.Unmarshal(data, &locations)
+	json.Unmarshal(data, &artists)
 }
 
 func GetDates() {
 	fmt.Println("Getting API.. Dates")
 	data := GetAPI(web.Dates)
-	json.Unmarshal(data, &dates)
+	json.Unmarshal(data, &artists)
 }
 
 func GetRelations() {
 	fmt.Println("Getting API.. Relations")
 	data := GetAPI(web.Relations)
-	json.Unmarshal(data, &relations)
+	json.Unmarshal(data, &artists)
 }
 
 func SetIDs() {
