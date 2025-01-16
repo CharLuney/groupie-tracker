@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strconv"
 )
 
 // Create the web server and waits for incoming user request
@@ -31,7 +32,8 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 
 func Inspect(w http.ResponseWriter, r *http.Request) {
 	web.Template = "web/inspect.html"
-	ParseTemplate(w)
+	id, _ := strconv.Atoi(r.FormValue("id"))
+	InspectTemplate(w, id)
 }
 
 // Parses HTML Template
@@ -53,7 +55,7 @@ func ParseTemplate(w http.ResponseWriter) {
 	}
 }
 
-// Parses HTML Template
+// Parses HTML Template for Filters
 func FilterTemplate(w http.ResponseWriter) {
 	fmt.Println("Parsing template.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)
@@ -66,6 +68,25 @@ func FilterTemplate(w http.ResponseWriter) {
 	}
 
 	err = tmpl.Execute(w, artistsFilterted)
+	if err != nil {
+		fmt.Println("Error executing template:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// Parses HTML Template for Inspect
+func InspectTemplate(w http.ResponseWriter, id int) {
+	fmt.Println("Parsing template.. ", web.Template)
+	tmpl, err := template.ParseFiles(web.Template)
+
+	if err != nil {
+		fmt.Println("Error parsing template:", err)
+		fmt.Println("Template path: ", web.Template)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, artists[id])
 	if err != nil {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)

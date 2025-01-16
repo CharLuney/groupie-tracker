@@ -60,7 +60,8 @@
         <form action="/" method="post"> 
         <div class="grid">
             {{range .}}
-                <div class="grid-item"> <a href="/inspect" style="text-decoration: none; color: white;">
+                <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
+                    style="text-decoration: none; color: white;">
                     <img class="img" src={{.Image}}>
                     <p> {{.Name}} </p> 
                     <p> Creation in {{.CreationDate}} </p>
