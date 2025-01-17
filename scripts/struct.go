@@ -1,10 +1,11 @@
 package api
 
 var web Website
-var filters Filters
 
 var artists []Artist
-var artistsFilterted []Artist
+var locations []Location
+var dates []Date
+var relations []Relation
 
 type Website struct {
 	Template string
@@ -16,14 +17,6 @@ type Website struct {
 	Relations string
 }
 
-type Filters struct {
-	CreationDate    string
-	FirstAlbum      string
-	MembersAmount   string
-	ConcertLocation string
-	Satisfied       bool
-}
-
 type Artist struct {
 	ID           string
 	Image        string   `json:"image"`
@@ -31,7 +24,16 @@ type Artist struct {
 	Members      []string `json:"members"`
 	CreationDate int      `json:"creationdate"`
 	FirstAlbum   string   `json:"firstalbum"`
-	Locations    []string `json:"locations"`
+}
+
+type Location struct {
+	Locations []string `json:"locations"`
+}
+
+type Date struct {
 	ConcertDates []string `json:"dates"`
-	Relations    []string `json:"relations"`
+}
+
+type Relation struct {
+	Relations []string `json:"relations"`
 }

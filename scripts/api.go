@@ -10,8 +10,8 @@ import (
 
 func GetAll() {
 	GetArtists()
-	GetDates()
 	GetLocations()
+	GetDates()
 	GetRelations()
 	SetIDs()
 }
@@ -45,23 +45,23 @@ func GetArtists() {
 func GetLocations() {
 	fmt.Println("Getting API.. Locations")
 	data := GetAPI(web.Locations)
-	json.Unmarshal(data, &artists)
+	json.Unmarshal(data, &locations)
 }
 
 func GetDates() {
 	fmt.Println("Getting API.. Dates")
 	data := GetAPI(web.Dates)
-	json.Unmarshal(data, &artists)
+	json.Unmarshal(data, &dates)
 }
 
 func GetRelations() {
 	fmt.Println("Getting API.. Relations")
 	data := GetAPI(web.Relations)
-	json.Unmarshal(data, &artists)
+	json.Unmarshal(data, &relations)
 }
 
 func SetIDs() {
-	fmt.Println("Assigning all IDs..")
+	fmt.Println("Assigning all IDs ..")
 	for i := 0; i < len(artists); i++ {
 		artists[i].ID = strconv.Itoa(i)
 	}
