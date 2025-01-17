@@ -59,25 +59,9 @@
                 <textarea class="navinput"></textarea>
                 <button class="search">Search</button>
             </div>
-        
-            <form action="/" method="post"> 
-                <div class="wrap">
-                    <div class="grid">
-                        {{range .}}
-                            <div class="grid-item"> <a href="/inspect" style="text-decoration: none; color: white;">
-                                <img class="img" src={{.Image}}>
-                                <p> {{.Name}} </p> 
-                                <p> Creation in {{.CreationDate}} </p>
-                                <p> Debut Album on {{.FirstAlbum}} </p>
-                            </a> </div>
-                        {{end}}
-                    </div>
-                </div>
-            
-            </form>
-        </div>
     
         <form action="/" method="post"> 
+
         <div class="grid">
             {{range .}}
                 <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
@@ -89,8 +73,11 @@
                     <p> {{.ID}} </p>
                 </a> </div>
             {{end}}
+
         </div>
+
         </form>
+        
     </div>
     
  </body>
