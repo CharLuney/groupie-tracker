@@ -21,7 +21,8 @@
                     <!-- CREATION DATE -->
                 <p style="color: whitesmoke">Creation Date</p>
                     <div class="creation">
-                        <textarea name="CreationDate"> </textarea>
+
+                        <input type="text" name="CreationDate" placeholder="2007"> </textarea>
                         <!-- <button class="minus">-</button>
                         <p style="color:whitesmoke">[insert year]</p>
                         <button class="plus">+</butborder: 7px solid rgba(38, 10, 112);ton> -->
@@ -30,7 +31,7 @@
                     <!-- FIRST ALBUM -->
                 <p style="color: whitesmoke">First Album Release</p>
                     <div class="album">
-                        <textarea name="FirstAlbum"> </textarea>
+                        <input type="text" name="FirstAlbum" placeholder="1970"> </textarea>
                         <!-- <button class="minus">-</button>
                         <p style="color:whitesmoke">[insert year]</p>
                         <button class="plus">+</button> -->
@@ -39,7 +40,14 @@
                     <!-- MEMBERS AMOUNT -->
                 <p style="color: whitesmoke">Amount of Members</p>
                     <div class="members">
-                        <input type="range" name="Members" min="1" max="10" />
+                        <div class="slider" style="display: flex; flex-direction: row; gap: 5px;">
+                            <input type="range" name="MembersMin" min="1" max="10" value="1" />
+                            <p> Min </p>
+                        </div>
+                        <div class="slider" style="display: flex; flex-direction: row; gap: 5px;">
+                            <input type="range" name="MembersMax" min="1" max="10" value="10" />
+                            <p> Max </p>
+                        </div>
                     </div>
 
                     <!-- CONCERT LOCATION -->

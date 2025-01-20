@@ -86,6 +86,11 @@ body {
   align-content: center;
 }
 
+.slider {
+  display: flex;
+  flex-direction: column;
+}
+
 .search {
   background-color: rgb(154, 117, 223);
   border: 7px solid rgb(74, 45, 163);

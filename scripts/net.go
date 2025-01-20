@@ -25,7 +25,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Filter(w http.ResponseWriter, r *http.Request) {
-	filters.MembersAmount = r.FormValue("Members")
+	filters.MembersMin = r.FormValue("MembersMin")
+	filters.MembersMax = r.FormValue("MembersMax")
 	filters.CreationDate = r.FormValue("CreationDate")
 	filters.FirstAlbum = r.FormValue("FirstAlbum")
 	ApplyFilters()

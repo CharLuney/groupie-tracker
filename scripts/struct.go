@@ -19,7 +19,8 @@ type Website struct {
 type Filters struct {
 	CreationDate    string
 	FirstAlbum      string
-	MembersAmount   string
+	MembersMin      string
+	MembersMax      string
 	ConcertLocation string
 	Satisfied       bool
 }

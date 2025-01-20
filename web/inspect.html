@@ -16,6 +16,10 @@
     <p> {{.Name}} </p> 
     <p> Creation in {{.CreationDate}} </p>
     <p> Debut Album on {{.FirstAlbum}} </p>
+    <br>
+    {{ range .Members }}
+    <p> {{.}} </p>
+    {{ end }}
 
 </body>
 
