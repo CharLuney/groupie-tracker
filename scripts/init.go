@@ -15,5 +15,7 @@ func Init() {
 	}
 
 	GetAll()
+	fmt.Println(artists[0])
+
 	CreateWebsite()
 }
