@@ -6,6 +6,8 @@ import (
 )
 
 func ApplyFilters() {
+	fmt.Println("Clearing filters..")
+	ClearFilters()
 	fmt.Println("Filtering artists..")
 	for i := 0; i < len(artists); i++ {
 		filters.Satisfied = true
@@ -30,11 +32,22 @@ func ApplyFilters() {
 }
 
 func FilterCreation(i int) {
-
+	date, _ := strconv.Atoi(filters.CreationDate)
+	if date != artists[i].CreationDate {
+		filters.Satisfied = false
+	}
 }
 
 func FilterAlbum(i int) {
+	// albumYear := strconv.Itoa(artists[i].FirstAlbum)
+	// albumYear = albumYear[len(albumYear)-4:]
+	// date, _ := strconv.Atoi(albumYear)
+	// fmt.Println(date)
+	// if date != {
+	// 	// strconv.Atoi(artists[i].FirstAlbum[len(artists[i].FirstAlbum)-4:]
 
+	// 	filters.Satisfied = false
+	// }
 }
 
 func FilterMembers(i int) {
@@ -46,4 +59,8 @@ func FilterMembers(i int) {
 
 func FilterLocations(i int) {
 
+}
+
+func ClearFilters() {
+	artistsFilterted = artistsFilterted[:0]
 }

@@ -13,56 +13,69 @@
         <div class="menu">
             <img id="icon" class="icon" src="/static/groupie_icon.jpg" alt="GT Icon">
             <br>
-            <!-- APPLY BUTTON -->
-            <p style="color: whitesmoke">Filters</p>
+            <form action="/filter" method="post"> 
+                <!-- APPLY BUTTON -->
+                <p style="color: whitesmoke">Filters</p>
                 <button type="submit" class="Apply">Apply</button>
 
-                <!-- CREATION DATE -->
-            <p style="color: whitesmoke">Creation Date</p>
-                <div class="creation">
-                    <button class="minus">-</button>
-                    <p style="color:whitesmoke">[insert year]</p>
-                    <button class="plus">+</butborder: 7px solid rgba(38, 10, 112);ton>
-                </div>
-
-                <!-- FIRST ALBUM -->
-            <p style="color: whitesmoke">First Album Release</p>
-                <div class="album">
-                    <button class="minus">-</button>
-                    <p style="color:whitesmoke">[insert year]</p>
-                    <button class="plus">+</button>
-                </div>
-
-                <!-- MEMBERS AMOUNT -->
-            <p style="color: whitesmoke">Amount of Members</p>
-                <div class="members">
-                    <form action="/filter" method="post"> 
-                    <input type="range" id="members" name="Members" min="1" max="10" />
-                    <button type="submit" value="Members" name="Members" class="Apply">Apply</button>
-                    </form>
-                </div>
-
-                <!-- CONCERT LOCATION -->
-            <p style="color: whitesmoke">Concert Locations</p>
-            <!-- WE HAVE TO FIX THIS NEXT TIME !!! Dropdown not working :( -->
-                <div class="dropdown">
-                    <span>Mouse over me</span>
-                    <div class="dropdown-content">
-                      <p>Hello World!</p>
+                    <!-- CREATION DATE -->
+                <p style="color: whitesmoke">Creation Date</p>
+                    <div class="creation">
+                        <textarea name="CreationDate"> </textarea>
+                        <!-- <button class="minus">-</button>
+                        <p style="color:whitesmoke">[insert year]</p>
+                        <button class="plus">+</butborder: 7px solid rgba(38, 10, 112);ton> -->
                     </div>
-                </div>
+
+                    <!-- FIRST ALBUM -->
+                <p style="color: whitesmoke">First Album Release</p>
+                    <div class="album">
+                        <textarea name="FirstAlbum"> </textarea>
+                        <!-- <button class="minus">-</button>
+                        <p style="color:whitesmoke">[insert year]</p>
+                        <button class="plus">+</button> -->
+                    </div>
+
+                    <!-- MEMBERS AMOUNT -->
+                <p style="color: whitesmoke">Amount of Members</p>
+                    <div class="members">
+                        <input type="range" name="Members" min="1" max="10" />
+                    </div>
+
+                    <!-- CONCERT LOCATION -->
+                <p style="color: whitesmoke">Concert Locations</p>
+                <!-- WE HAVE TO FIX THIS NEXT TIME !!! Dropdown not working :( -->
+                    <div class="dropdown">
+                        <span>Mouse over me</span>
+                        <div class="dropdown-content">
+                        <p>Hello World!</p>
+                        </div>
+
+                    </div>
+            </form>
         </div>
 
         <div class="panel">
 
             <div class="navbar">
                 <textarea class="navinput"></textarea>
-                <button class="search">Search</button>
+                <button class="search" id="search-bar">Search</button>
+                <form action="/" method="post">
+                    <button type="submit"> Clear </button>
+                </form>
             </div>
-    
-        <form action="/" method="post"> 
 
-        <div class="grid">
+            <script>
+                let search_bar = document.getElementById("search-bar");
+
+                search_bar.addEventListener("change", (event) => {
+                    console.log("fez");
+                });
+            </script>
+    
+        <form action="/" method="post" class="grid"> 
+
+        <!-- <div > -->
             {{range .}}
                 <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
                     style="text-decoration: none; color: white;">
@@ -70,11 +83,10 @@
                     <p> {{.Name}} </p> 
                     <p> Creation in {{.CreationDate}} </p>
                     <p> Debut Album on {{.FirstAlbum}} </p>
-                    <p> {{.ID}} </p>
                 </a> </div>
             {{end}}
 
-        </div>
+        <!-- </div> -->
 
         </form>
         

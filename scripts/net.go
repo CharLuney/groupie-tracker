@@ -20,12 +20,14 @@ func CreateWebsite() {
 
 // Server handler
 func Index(w http.ResponseWriter, r *http.Request) {
+	Back()
 	ParseTemplate(w)
 }
 
 func Filter(w http.ResponseWriter, r *http.Request) {
 	filters.MembersAmount = r.FormValue("Members")
-	fmt.Println(filters.MembersAmount)
+	filters.CreationDate = r.FormValue("CreationDate")
+	filters.FirstAlbum = r.FormValue("FirstAlbum")
 	ApplyFilters()
 	FilterTemplate(w)
 }
@@ -91,4 +93,8 @@ func InspectTemplate(w http.ResponseWriter, id int) {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
+}
+
+func Back() {
+	web.Template = "web/page.html"
 }
