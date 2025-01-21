@@ -15,13 +15,11 @@ func Init() {
 	}
 
 	regex = Regex{
-		Name: "[a-z]+$",
+		Name: "[a-zA-Z]$",
 		Date: "[0-9]{2}/[0-9]{2}/[0-9]{2}$",
 		Year: "[0-9]{4}$",
 	}
 
 	GetAll()
-	fmt.Println(artists[0])
-
 	CreateWebsite()
 }

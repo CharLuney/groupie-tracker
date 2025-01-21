@@ -37,6 +37,7 @@ type Regex struct {
 }
 
 type Query struct {
+	Input     string
 	IsName    bool
 	IsDate    bool
 	IsYear    bool

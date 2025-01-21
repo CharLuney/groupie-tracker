@@ -7,15 +7,23 @@ import (
 	"strings"
 )
 
-func Search(input string) {
+func SearchFor(input string) {
+
+	ClearSearch()
+	input = strings.ToLower(input)
+
+	// Defines input regex
+	query.IsName, _ = regexp.MatchString(regex.Name, input)
+	fmt.Println("regex string: ", query.IsName)
+	query.IsDate, _ = regexp.MatchString(regex.Date, input)
+	fmt.Println("regex date: ", query.IsDate)
+	query.IsYear, _ = regexp.MatchString(regex.Year, input)
+	fmt.Println("regex year: ", query.IsYear)
+
 	// Looping through artists
 	for i := 0; i < len(artists); i++ {
 		query.LookedFor = false
-
-		// Defines input regex
-		query.IsName, _ = regexp.MatchString(regex.Name, input)
-		query.IsDate, _ = regexp.MatchString(regex.Date, input)
-		query.IsYear, _ = regexp.MatchString(regex.Year, input)
+		query.IsInvalid = false
 
 		if query.IsName {
 			if strings.Contains(artists[i].Name, input) {
@@ -32,9 +40,9 @@ func Search(input string) {
 			}
 
 		} else if query.IsYear {
-			inputInt = strconv.Atoi(input)
-			if strings.Contains(artists[i].CreationDate, strconv.Atoi(input)) {
-
+			inputInt, _ := strconv.Atoi(input)
+			if artists[i].CreationDate == inputInt {
+				query.LookedFor = true
 			}
 		} else {
 			query.IsInvalid = true
@@ -46,4 +54,8 @@ func Search(input string) {
 		}
 	}
 
+}
+
+func ClearSearch() {
+	artistsSearched = artistsSearched[:0]
 }

@@ -14,6 +14,7 @@ func CreateWebsite() {
 	fmt.Println("Assigning routes..")
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/filter", Filter)
+	http.HandleFunc("/search", Search)
 	http.HandleFunc("/inspect", Inspect)
 	http.ListenAndServe(web.Port, nil)
 }
@@ -31,6 +32,13 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	filters.FirstAlbum = r.FormValue("FirstAlbum")
 	ApplyFilters()
 	FilterTemplate(w)
+}
+
+func Search(w http.ResponseWriter, r *http.Request) {
+	query.Input = r.FormValue("SearchBar")
+	fmt.Println("searched for: ", query.Input)
+	SearchFor(query.Input)
+	SearchTemplate(w)
 }
 
 func Inspect(w http.ResponseWriter, r *http.Request) {
@@ -71,6 +79,24 @@ func FilterTemplate(w http.ResponseWriter) {
 	}
 
 	err = tmpl.Execute(w, artistsFilterted)
+	if err != nil {
+		fmt.Println("Error executing template:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+func SearchTemplate(w http.ResponseWriter) {
+	fmt.Println("Parsing template.. ", web.Template)
+	tmpl, err := template.ParseFiles(web.Template)
+
+	if err != nil {
+		fmt.Println("Error parsing template:", err)
+		fmt.Println("Template path: ", web.Template)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	err = tmpl.Execute(w, artistsSearched)
 	if err != nil {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
