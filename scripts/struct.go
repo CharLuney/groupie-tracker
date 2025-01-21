@@ -2,9 +2,12 @@ package api
 
 var web Website
 var filters Filters
+var regex Regex
+var query Query
 
 var artists []Artist
 var artistsFilterted []Artist
+var artistsSearched []Artist
 
 var locations []IndexLocations
 
@@ -24,7 +27,20 @@ type Filters struct {
 	MembersMin      string
 	MembersMax      string
 	ConcertLocation string
-	Satisfied       bool
+	Verified        bool
+}
+
+type Regex struct {
+	Name string
+	Date string
+	Year string
+}
+
+type Query struct {
+	isName    bool
+	isDate    bool
+	isYear    bool
+	isInvalid bool
 }
 
 type Artist struct {

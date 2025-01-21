@@ -14,6 +14,12 @@ func Init() {
 		Relations: "https://groupietrackers.herokuapp.com/api/relations",
 	}
 
+	regex = Regex{
+		Name: "[a-z]+$",
+		Date: "[0-9]{2}/[0-9]{2}/[0-9]{2}$",
+		Year: "[0-9]{4}$",
+	}
+
 	GetAll()
 	fmt.Println(artists[0])
 

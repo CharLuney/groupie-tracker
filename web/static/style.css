@@ -68,6 +68,11 @@ body {
     font-size: 25px;
 }
 
+.subtext {
+  font-size: 20px;
+  color: rgb(154, 117, 223);
+}
+
 .icon {
   border: 7px solid rgb(38, 10, 112);
   border-radius: 10px;
@@ -139,4 +144,39 @@ body {
   
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  /* INSPECT PAGE */
+
+  .bodyinspect {
+    background-color: rgb(154, 117, 223);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .banner {
+    background-color: rgb(74, 45, 163);
+    height: 100%;
+    width: max-content;
+    padding: 60px;
+  }
+
+  .info {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 30px;
+  }
+
+  .imginspect {
+    display: block;
+    margin: auto;
+    margin-top: 15%;
+    width: 370px;
+    height: 370px;
+    border: 7px solid rgb(38, 10, 112);
+    border-radius: 10px;
   }

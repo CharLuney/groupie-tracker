@@ -11,7 +11,7 @@ func ApplyFilters() {
 	ClearFilters()
 	fmt.Println("Filtering artists..")
 	for i := 0; i < len(artists); i++ {
-		filters.Satisfied = true
+		filters.Verified = true
 		if filters.CreationDate != "" {
 			FilterCreation(i)
 		}
@@ -24,7 +24,7 @@ func ApplyFilters() {
 		// if filters.ConcertLocation != "" {
 		// 	FilterLocations(i)
 		// }
-		if filters.Satisfied {
+		if filters.Verified {
 			artistsFilterted = append(artistsFilterted, artists[i])
 			fmt.Println("Added artist: ", artists[i])
 		}
@@ -34,13 +34,13 @@ func ApplyFilters() {
 func FilterCreation(i int) {
 	date := strconv.Itoa(artists[i].CreationDate)
 	if date != filters.CreationDate {
-		filters.Satisfied = false
+		filters.Verified = false
 	}
 }
 
 func FilterAlbum(i int) {
 	if !strings.Contains(filters.FirstAlbum, artists[i].FirstAlbum) {
-		filters.Satisfied = false
+		filters.Verified = false
 	}
 }
 
@@ -48,7 +48,7 @@ func FilterMembers(i int) {
 	min, _ := strconv.Atoi(filters.MembersMin)
 	max, _ := strconv.Atoi(filters.MembersMax)
 	if !(len(artists[i].Members) >= min && len(artists[i].Members) <= max) {
-		filters.Satisfied = false
+		filters.Verified = false
 	}
 }
 
