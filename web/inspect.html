@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body>
+<body class="bodyinspect">
 
-    <img class="img" src={{.Image}}>
-    <p> {{.Name}} </p> 
-    <p> Creation in {{.CreationDate}} </p>
-    <p> Debut Album on {{.FirstAlbum}} </p>
-    <p> {{.ID}} </p>
-
+    <div class="banner">
+        <img class="imginspect" src={{.Image}}>
+        <p class="info"> {{.Name}} </p> 
+        <p class="info"> Creation in {{.CreationDate}} </p>
+        <p class="info"> Debut Album on {{.FirstAlbum}} </p>
+    </div>
 </body>
 
 </html>
