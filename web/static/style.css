@@ -3,6 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -39,7 +40,9 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 7px;
-    height: auto;
+    overflow-y: scroll;
+    height: 90%;
+    
 }
 
 .grid-cont {
@@ -86,6 +89,11 @@ body {
   border-radius: 5px;
   height: 35px;
   align-content: center;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
 }
 
 .search {
