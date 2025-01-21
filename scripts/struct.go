@@ -9,7 +9,7 @@ var artists []Artist
 var artistsFilterted []Artist
 var artistsSearched []Artist
 
-var locations []IndexLocations
+// var locations []IndexLocations
 
 type Website struct {
 	Template string
@@ -37,10 +37,11 @@ type Regex struct {
 }
 
 type Query struct {
-	isName    bool
-	isDate    bool
-	isYear    bool
-	isInvalid bool
+	IsName    bool
+	IsDate    bool
+	IsYear    bool
+	IsInvalid bool
+	LookedFor bool
 }
 
 type Artist struct {
