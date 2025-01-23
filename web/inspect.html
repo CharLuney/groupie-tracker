@@ -6,27 +6,23 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
-<body>
+<body class="bodyinspect">
     
     <form action="/" method="post">
-        <button type="submit"> Back </button>
+        <button class="button" type="submit"> Back </button>
     </form>
-
-    <img class="img" src={{.Image}}>
-    <p> {{.Name}} </p> 
-    <p> Creation in {{.CreationDate}} </p>
-    <p> Debut Album on {{.FirstAlbum}} </p>
-    <br>
-    {{ range .Members }}
-    <p> {{.}} </p>
-    {{ end }}
 
     <div class="banner">
         <img class="imginspect" src={{.Image}}>
         <p class="info"> {{.Name}} </p> 
         <p class="info"> Creation in {{.CreationDate}} </p>
         <p class="info"> Debut Album on {{.FirstAlbum}} </p>
+        <br>
+        {{ range .Members }}
+        <p class="members"> {{.}} </p>
+        {{end}}
     </div>
+
 </body>
 
 </html>
