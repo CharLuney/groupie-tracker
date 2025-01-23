@@ -15,11 +15,11 @@
             <br>
             <form action="/filter" method="post"> 
                 <!-- APPLY BUTTON -->
-                <p style="color: whitesmoke">Filters</p>
-                <button type="submit" class="Apply">Apply</button>
+                <p style="color: #e4d5ff">Filters</p>
+                <button type="submit" class="button">Apply</button>
 
                     <!-- CREATION DATE -->
-                <p style="color: whitesmoke">Creation Date</p>
+                <p style="color: #e4d5ff">Creation Date</p>
                     <div class="creation">
 
                         <input type="text" name="CreationDate" placeholder="2007"> </textarea>
@@ -29,7 +29,7 @@
                     </div>
 
                     <!-- FIRST ALBUM -->
-                <p style="color: whitesmoke">First Album Release</p>
+                <p style="color: #e4d5ff">First Album Release</p>
                     <div class="album">
                         <input type="text" name="FirstAlbum" placeholder="1970"> </textarea>
                         <!-- <button class="minus">-</button>
@@ -38,7 +38,7 @@
                     </div>
 
                     <!-- MEMBERS AMOUNT -->
-                <p style="color: whitesmoke">Amount of Members</p>
+                <p style="color: e4d5ff">Amount of Members</p>
                     <div class="members">
                         <div class="slider" style="display: flex; flex-direction: row; gap: 5px;">
                             <input type="range" name="MembersMin" min="1" max="10" value="1" />
@@ -51,7 +51,7 @@
                     </div>
 
                     <!-- CONCERT LOCATION -->
-                <p style="color: whitesmoke">Concert Locations</p>
+                <p style="color: #e4d5ff">Concert Locations</p>
                 <!-- WE HAVE TO FIX THIS NEXT TIME !!! Dropdown not working :( -->
                     <div class="dropdown">
                         <span>Mouse over me</span>
@@ -63,7 +63,7 @@
             </form>
         </div>
 
-        <div class="panel">
+        <div style="display: flex" class="panel">
 
             <div class="navbar">
                 <form action="/search" method="post">
@@ -71,7 +71,7 @@
                     <button class="search" type="submit">Search</button>
                 </form>
                 <form action="/" method="post">
-                    <button type="submit"> Clear </button>
+                    <button type="submit" class="button"> Clear </button>
                 </form>
             </div>
 
@@ -88,11 +88,11 @@
         <!-- <div > -->
             {{range .}}
                 <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
-                    style="text-decoration: none; color: white;">
+                    style="text-decoration: none; color: #e4d5ff;">
                     <img class="img" src={{.Image}}>
                     <p> {{.Name}} </p> 
-                    <p> Creation in {{.CreationDate}} </p>
-                    <p> Debut Album on {{.FirstAlbum}} </p>
+                    <p class="subtext"> Creation in {{.CreationDate}} </p>
+                    <p class="subtext"> Debut Album on {{.FirstAlbum}} </p>
                 </a> </div>
             {{end}}
 

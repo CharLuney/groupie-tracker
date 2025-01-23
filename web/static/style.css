@@ -22,6 +22,7 @@ body {
     border-radius: 5px;
     max-width: auto;
     max-height: auto;
+    font-size: 20px;
 }
 
 .panel {
@@ -83,12 +84,13 @@ body {
   border-radius: 10px;
 }
 
-.apply {
-  background-color: whitesmoke;
-  border: rgb(154, 117, 223);
+.button {
+  background-color: #e4d5ff;
   border-radius: 5px;
-  height: 35px;
+  border-color: #9974de;
+  height: 25px;
   align-content: center;
+  color: rgb(94, 61, 194);
 }
 
 .slider {
@@ -97,8 +99,9 @@ body {
 }
 
 .search {
-  background-color: rgb(154, 117, 223);
-  border: 7px solid rgb(74, 45, 163);
+  color: rgb(94, 61, 194);
+  background-color: #e4d5ff;
+  border: 7px solid #9974de;
   border-radius: 5px;
   padding: 20px;
   height: 35px;
@@ -115,9 +118,9 @@ body {
   resize: none;
   height: 35px;
   width: 1000px;
-  border: 7px solid rgb(74, 45, 163);
+  border: 7px solid #9974de;
   border-radius: 5px;
-  background-color: rgb(154, 117, 223);
+  background-color: #e4d5ff;
   align-content: center;
 }
 
@@ -162,13 +165,20 @@ body {
     background-color: rgb(74, 45, 163);
     height: 100%;
     width: max-content;
-    padding: 60px;
+    padding: 80px;
+    border: #5019e7;
+    border-radius: 10px;
   }
 
   .info {
     text-align: center;
-    color: whitesmoke;
+    color: #e4d5ff;
     font-size: 30px;
+  }
+
+  .members {
+    color: #e4d5ff;
+    justify-content: center;
   }
 
   .imginspect {
