@@ -19,12 +19,13 @@ func CreateWebsite() {
 	http.ListenAndServe(web.Port, nil)
 }
 
-// Server handler
+// Server index handler
 func Index(w http.ResponseWriter, r *http.Request) {
 	Back()
-	ParseTemplate(w)
+	IndexTemplate(w)
 }
 
+// Filter handler
 func Filter(w http.ResponseWriter, r *http.Request) {
 	filters.MembersMin = r.FormValue("MembersMin")
 	filters.MembersMax = r.FormValue("MembersMax")
@@ -34,21 +35,27 @@ func Filter(w http.ResponseWriter, r *http.Request) {
 	FilterTemplate(w)
 }
 
+// Search handler
 func Search(w http.ResponseWriter, r *http.Request) {
 	query.Input = r.FormValue("SearchBar")
-	fmt.Println("searched for: ", query.Input)
 	SearchFor(query.Input)
 	SearchTemplate(w)
 }
 
+// Inspect handler
 func Inspect(w http.ResponseWriter, r *http.Request) {
 	web.Template = "web/inspect.html"
 	id, _ := strconv.Atoi(r.FormValue("id"))
 	InspectTemplate(w, id)
 }
 
+// Goes back to mainpage
+func Back() {
+	web.Template = "web/page.html"
+}
+
 // Parses HTML Template
-func ParseTemplate(w http.ResponseWriter) {
+func IndexTemplate(w http.ResponseWriter) {
 	fmt.Println("Parsing template.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)
 
@@ -85,6 +92,7 @@ func FilterTemplate(w http.ResponseWriter) {
 	}
 }
 
+// Parses HTML Template for Search
 func SearchTemplate(w http.ResponseWriter) {
 	fmt.Println("Parsing template.. ", web.Template)
 	tmpl, err := template.ParseFiles(web.Template)
@@ -120,8 +128,4 @@ func InspectTemplate(w http.ResponseWriter, id int) {
 		fmt.Println("Error executing template:", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
-}
-
-func Back() {
-	web.Template = "web/page.html"
 }

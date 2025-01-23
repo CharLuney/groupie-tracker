@@ -6,6 +6,7 @@ import (
 	"net/http"
 )
 
+// Gets the map from the provided URL and returns it's HTML data
 func GetMap(URL string) []byte {
 	resp, err := http.Get(URL)
 	if err != nil {

@@ -91,6 +91,16 @@ body {
   height: 25px;
   align-content: center;
   color: rgb(94, 61, 194);
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #c4a4ff;
+  border-radius: 5px;
+  border-color: #9974de;
+  height: 25px;
+  align-content: center;
+  color: rgb(94, 61, 194);
 }
 
 .slider {
@@ -103,15 +113,16 @@ body {
   background-color: #e4d5ff;
   border: 7px solid #9974de;
   border-radius: 5px;
-  padding: 20px;
-  height: 35px;
+  height: 50px;
+  width: 100px;
   align-content: center;
+  text-align: center;
   font-size: medium;
+  transition: 0.3s;
 }
 
-/* HOVER NOT FUNCTIONAL */
-.search hover {
-  background-color: rgb(94, 61, 194);
+.search:hover {
+  background-color: #c4a4ff;
 }
 
 .navinput {
@@ -122,6 +133,11 @@ body {
   border-radius: 5px;
   background-color: #e4d5ff;
   align-content: center;
+  transition: 0.3s;
+}
+
+.navinput:hover {
+  background-color: #c4a4ff;
 }
 
 .navbar {

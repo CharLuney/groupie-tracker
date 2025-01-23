@@ -1,15 +1,13 @@
 package api
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
 
+// Clear and apply filters to artists data
 func ApplyFilters() {
-	fmt.Println("Clearing filters..")
 	ClearFilters()
-	fmt.Println("Filtering artists..")
 	for i := 0; i < len(artists); i++ {
 		filters.Verified = true
 		if filters.CreationDate != "" {
@@ -24,11 +22,11 @@ func ApplyFilters() {
 
 		if filters.Verified {
 			artistsFilterted = append(artistsFilterted, artists[i])
-			fmt.Println("Added artist: ", artists[i])
 		}
 	}
 }
 
+// Filters creation dates of each artist
 func FilterCreation(i int) {
 	date := strconv.Itoa(artists[i].CreationDate)
 	if date != filters.CreationDate {
@@ -36,12 +34,14 @@ func FilterCreation(i int) {
 	}
 }
 
+// Filters first albums of each artist
 func FilterAlbum(i int) {
 	if !strings.Contains(filters.FirstAlbum, artists[i].FirstAlbum) {
 		filters.Verified = false
 	}
 }
 
+// Filters members of each artist
 func FilterMembers(i int) {
 	min, _ := strconv.Atoi(filters.MembersMin)
 	max, _ := strconv.Atoi(filters.MembersMax)
@@ -50,10 +50,7 @@ func FilterMembers(i int) {
 	}
 }
 
-func FilterLocations(i int) {
-
-}
-
+// Sets filters back to default
 func ClearFilters() {
 	artistsFilterted = artistsFilterted[:0]
 }

@@ -32,9 +32,6 @@
                 <p style="color: #e4d5ff">First Album Release</p>
                     <div class="album">
                         <input type="text" name="FirstAlbum" placeholder="1970"> </textarea>
-                        <!-- <button class="minus">-</button>
-                        <p style="color:whitesmoke">[insert year]</p>
-                        <button class="plus">+</button> -->
                     </div>
 
                     <!-- MEMBERS AMOUNT -->
@@ -49,24 +46,13 @@
                             <p> Max </p>
                         </div>
                     </div>
-
-                    <!-- CONCERT LOCATION -->
-                <p style="color: #e4d5ff">Concert Locations</p>
-                <!-- WE HAVE TO FIX THIS NEXT TIME !!! Dropdown not working :( -->
-                    <div class="dropdown">
-                        <span>Mouse over me</span>
-                        <div class="dropdown-content">
-                        <p>Hello World!</p>
-                        </div>
-
-                    </div>
             </form>
         </div>
 
         <div style="display: flex" class="panel">
 
             <div class="navbar">
-                <form action="/search" method="post">
+                <form action="/search" method="post" style="display: flex; justify-content: flex-start; align-items: center;">
                     <input type="text" name="SearchBar" class="navinput"></input>
                     <button class="search" type="submit">Search</button>
                 </form>
@@ -74,31 +60,20 @@
                     <button type="submit" class="button"> Clear </button>
                 </form>
             </div>
-
-            <script>
-                let search_bar = document.getElementById("search-bar");
-
-                search_bar.addEventListener("change", (event) => {
-                    console.log("fez");
-                });
-            </script>
     
-        <form action="/" method="post" class="grid"> 
-
-        <!-- <div > -->
-            {{range .}}
-                <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
-                    style="text-decoration: none; color: #e4d5ff;">
-                    <img class="img" src={{.Image}}>
-                    <p> {{.Name}} </p> 
-                    <p class="subtext"> Creation in {{.CreationDate}} </p>
-                    <p class="subtext"> Debut Album on {{.FirstAlbum}} </p>
-                </a> </div>
-            {{end}}
-
-        <!-- </div> -->
-
-        </form>
+            <form action="/" method="post" class="grid"> 
+                {{range .}}
+                    <div class="grid-item"> <a href="/inspect?id={{.ID}}" 
+                        style="text-decoration: none; color: #e4d5ff;">
+                        <img class="img" src={{.Image}}>
+                        <p> {{.Name}} </p> 
+                        <p class="subtext"> Creation in {{.CreationDate}} </p>
+                        <p class="subtext"> Debut Album on {{.FirstAlbum}} </p>
+                    </a> </div>
+                {{end}}
+            </form>
+            
+        </div>
         
     </div>
     
