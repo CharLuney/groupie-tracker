@@ -19,6 +19,7 @@ type Website struct {
 	Locations string
 	Dates     string
 	Relations string
+	Map       string
 }
 
 type Filters struct {

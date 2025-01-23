@@ -14,11 +14,8 @@ func SearchFor(input string) {
 
 	// Defines input regex
 	query.IsName, _ = regexp.MatchString(regex.Name, input)
-	fmt.Println("regex string: ", query.IsName)
 	query.IsDate, _ = regexp.MatchString(regex.Date, input)
-	fmt.Println("regex date: ", query.IsDate)
 	query.IsYear, _ = regexp.MatchString(regex.Year, input)
-	fmt.Println("regex year: ", query.IsYear)
 
 	// Looping through artists
 	for i := 0; i < len(artists); i++ {
@@ -26,11 +23,11 @@ func SearchFor(input string) {
 		query.IsInvalid = false
 
 		if query.IsName {
-			if strings.Contains(artists[i].Name, input) {
+			if strings.Contains(strings.ToLower(artists[i].Name), input) {
 				query.LookedFor = true
 			}
-			for i := 0; i < len(artists[i].Members); i++ {
-				if strings.Contains(artists[i].Members[i], input) {
+			for j := 0; j < len(artists[i].Members); j++ {
+				if strings.Contains(strings.ToLower(artists[i].Members[j]), input) {
 					query.LookedFor = true
 				}
 			}
@@ -53,7 +50,6 @@ func SearchFor(input string) {
 			fmt.Println("Added artist to result: ", artists[i])
 		}
 	}
-
 }
 
 func ClearSearch() {

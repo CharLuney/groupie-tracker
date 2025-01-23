@@ -15,15 +15,13 @@ func ApplyFilters() {
 		if filters.CreationDate != "" {
 			FilterCreation(i)
 		}
-		// if filters.FirstAlbum != "" {
-		// 	FilterAlbum(i)
-		// }
+		if filters.FirstAlbum != "" {
+			FilterAlbum(i)
+		}
 		if filters.MembersMax != "" && filters.MembersMin != "" {
 			FilterMembers(i)
 		}
-		// if filters.ConcertLocation != "" {
-		// 	FilterLocations(i)
-		// }
+
 		if filters.Verified {
 			artistsFilterted = append(artistsFilterted, artists[i])
 			fmt.Println("Added artist: ", artists[i])

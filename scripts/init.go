@@ -1,6 +1,8 @@
 package api
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func Init() {
 	fmt.Println("Initializing..")
@@ -12,14 +14,16 @@ func Init() {
 		Locations: "https://groupietrackers.herokuapp.com/api/locations",
 		Dates:     "https://groupietrackers.herokuapp.com/api/dates",
 		Relations: "https://groupietrackers.herokuapp.com/api/relations",
+		Map:       "https://api.openstreetmap.org/api/0.6/map?bbox=-0.1275,51.5072,0.1275,51.5078",
 	}
 
 	regex = Regex{
 		Name: "[a-zA-Z]$",
-		Date: "[0-9]{2}/[0-9]{2}/[0-9]{2}$",
+		Date: "[0-9]{2}-[0-9]{2}-[0-9]{4}$",
 		Year: "[0-9]{4}$",
 	}
 
 	GetAll()
+	GetMap(web.Map)
 	CreateWebsite()
 }
