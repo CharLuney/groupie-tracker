@@ -22,7 +22,7 @@ sudo apt-get -y install golang-go
 
 Installation de Groupie Tracker :
 ```
-git clone https://github.com/zelttrox/groupie-tracker.git
+git clone https://github.com/charluney/groupie-tracker.git
 ```
 
 Lancement du site :

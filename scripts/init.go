@@ -7,6 +7,7 @@ import (
 func Init() {
 	fmt.Println("Initializing..")
 
+	// Initializes server properties and API URLs
 	web = Website{
 		Template:  "web/page.html",
 		Port:      ":8080",
@@ -17,6 +18,7 @@ func Init() {
 		Map:       "https://api.openstreetmap.org/api/0.6/map?bbox=-0.1275,51.5072,0.1275,51.5078",
 	}
 
+	// Initializes regexs for each possible input
 	regex = Regex{
 		Name: "[a-zA-Z]$",
 		Date: "[0-9]{2}-[0-9]{2}-[0-9]{4}$",
@@ -24,6 +26,5 @@ func Init() {
 	}
 
 	GetAll()
-	GetMap(web.Map)
 	CreateWebsite()
 }

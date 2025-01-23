@@ -5,6 +5,5 @@ import (
 )
 
 func main() {
-	//api.Search()
 	api.Init()
 }

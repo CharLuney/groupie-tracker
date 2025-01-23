@@ -1,6 +1,7 @@
 package api
 
 var web Website
+
 var filters Filters
 var regex Regex
 var query Query
@@ -9,41 +10,39 @@ var artists []Artist
 var artistsFilterted []Artist
 var artistsSearched []Artist
 
-// var locations []IndexLocations
-
 type Website struct {
-	Template string
-	Port     string
+	Template string // Path to template file to parse
+	Port     string // Port used for the server
 
-	Artists   string
-	Locations string
-	Dates     string
-	Relations string
-	Map       string
+	Artists   string // API Url to Artists branch
+	Locations string // API Url to Locations branch
+	Dates     string // API Url to Dates branch
+	Relations string // API Url to Relations branch
+	Map       string // API Url to OpenStreetMap (OSM)
 }
 
 type Filters struct {
-	CreationDate    string
-	FirstAlbum      string
-	MembersMin      string
-	MembersMax      string
-	ConcertLocation string
-	Verified        bool
+	CreationDate    string // Value of creation date filter
+	FirstAlbum      string // Value of first album filter
+	MembersMin      string // Minimum amount of members filter
+	MembersMax      string // Maximum amount of members filter
+	ConcertLocation string // Value of concert location filter
+	Verified        bool   // True if the artist passed all the filters
 }
 
 type Regex struct {
-	Name string
-	Date string
-	Year string
+	Name string // Type string
+	Date string // Type date
+	Year string // Type year
 }
 
 type Query struct {
-	Input     string
-	IsName    bool
-	IsDate    bool
-	IsYear    bool
-	IsInvalid bool
-	LookedFor bool
+	Input     string // Search bar's user input
+	IsName    bool   // True if query type is a string
+	IsDate    bool   // True if query type is a date
+	IsYear    bool   // True if query type is a year
+	IsInvalid bool   // True if query type is a invalid
+	LookedFor bool   // Determinates if the current artist is looked for
 }
 
 type Artist struct {
