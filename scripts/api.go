@@ -51,13 +51,13 @@ func GetLocations() {
 func GetDates() {
 	fmt.Println("Getting API.. Dates")
 	data := GetAPI(web.Dates)
-	json.Unmarshal(data, &dates)
+	json.Unmarshal(data, &artists)
 }
 
 func GetRelations() {
 	fmt.Println("Getting API.. Relations")
 	data := GetAPI(web.Relations)
-	json.Unmarshal(data, &relations)
+	json.Unmarshal(data, &artists)
 }
 
 func Restruct() {

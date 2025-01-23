@@ -9,9 +9,7 @@ var artists []Artist
 var artistsFilterted []Artist
 var artistsSearched []Artist
 
-var locations []Locations
-var dates []Dates
-var relations []Relations
+// var locations []IndexLocations
 
 type Website struct {
 	Template string
@@ -39,30 +37,45 @@ type Regex struct {
 }
 
 type Query struct {
-	isName    bool
-	isDate    bool
-	isYear    bool
-	isInvalid bool
+	Input     string
+	IsName    bool
+	IsDate    bool
+	IsYear    bool
+	IsInvalid bool
+	LookedFor bool
 }
 
 type Artist struct {
 	ID           string
-	Image        string              `json:"image"`
-	Name         string              `json:"name"`
-	Members      []string            `json:"members"`
-	CreationDate int                 `json:"creationdate"`
-	FirstAlbum   string              `json:"firstalbum"`
-	Locations    []string            `json:"locations"`
-	ConcertDates []string            `json:"dates"`
-	Relations    map[string][]string `json:"relations"`
+	Image        string           `json:"image"`
+	Name         string           `json:"name"`
+	Members      []string         `json:"members"`
+	CreationDate int              `json:"creationdate"`
+	FirstAlbum   string           `json:"firstalbum"`
+	Locations    []IndexLocations `json:"locations"`
+	ConcertDates []IndexDates     `json:"dates"`
+	Relations    []IndexRelations `json:"relations"`
+}
+
+type IndexLocations struct {
+	Index []Locations `json:"index"`
 }
 
 type Locations struct {
+	Id       int      `json:"id"`
 	Location []string `json:"locations"`
+}
+
+type IndexDates struct {
+	Date []Dates `json:"index"`
 }
 
 type Dates struct {
 	Date []string `json:"dates"`
+}
+
+type IndexRelations struct {
+	Date []string `json:"index"`
 }
 
 type Relations struct {

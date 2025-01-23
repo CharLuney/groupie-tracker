@@ -66,8 +66,10 @@
         <div class="panel">
 
             <div class="navbar">
-                <textarea class="navinput"></textarea>
-                <button class="search" id="search-bar">Search</button>
+                <form action="/search" method="post">
+                    <input type="text" name="SearchBar" class="navinput"></input>
+                    <button class="search" type="submit">Search</button>
+                </form>
                 <form action="/" method="post">
                     <button type="submit"> Clear </button>
                 </form>
